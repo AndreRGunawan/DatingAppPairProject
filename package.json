@@ -1,0 +1,25 @@
+{
+  "name": "datingapppairproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreRGunawan/DatingAppPairProject.git"
+  },
+  "author": "ahmad & andre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreRGunawan/DatingAppPairProject/issues"
+  },
+  "homepage": "https://github.com/AndreRGunawan/DatingAppPairProject#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "pg": "^7.18.2",
+    "sequelize": "^5.21.5"
+  }
+}
