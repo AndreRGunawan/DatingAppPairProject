@@ -7,15 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     like: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
     },
     love: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
     },
     dislike: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
     },
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
