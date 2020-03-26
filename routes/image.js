@@ -3,8 +3,8 @@ const ImageController = require("../controllers/ImageController");
 
 
 router.get("/", ImageController.findAll);
-router.get("/upload", ImageController.registration);
-router.post("/upload", ImageController.uploads)
+// router.get("/upload", ImageController.registration);
+// router.post("/upload", ImageController.uploads)
 
 
 module.exports = router;

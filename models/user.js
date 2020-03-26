@@ -77,7 +77,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: DataTypes.DATE
   }, {
     hooks : {
-      afterCreate(User, options) {
+      beforeCreate(User, options) {
         return passwordHash.generate(User.password);
       },
       afterFind: function(result, options, fn){

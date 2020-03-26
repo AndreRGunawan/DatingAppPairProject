@@ -1,0 +1,166 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit Profile</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/v4-shims.min.js" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+<body>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div class="col-sm-10 ml-2"><h1><%= data[0].name%></h1></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+
+      <div class="panel panel-default text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div></hr><br>
+
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+          </ul> 
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                  <form class="form" action="/users/edit/<%= data[0].id%>" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>Full Name</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" value="<%= data[0].name%>" title="enter your first name if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>age</h4></label>
+                              <input type="number" class="form-control" name="age" id="last_name" value="<%= data[0].age%>" title="enter your last name if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Phone Number</h4></label>
+                              <input type="text" class="form-control" name="phone_number" id="phone" value="<%= data[0].phone_number%>" title="enter your phone number if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" value="<%= data[0].email%>" title="enter your email.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-sm-6">
+                                <label for="email"><h4>Location</h4></label>
+                                <select name="location" id="" class="custom-select custom-selecet">
+                                    <% data.map(el => { %>
+                                    <option>---SELECT---</option>
+                                    <option <%= data[0].location == 'Jakarta' ? 'selected' : ""%>>Jakarta</option>
+                                    <option <%= data[0].location == 'Bandung' ? 'selected' : ""%>>Bandung</option>
+                                    <option <%= data[0].location == 'Bogor' ? 'selected' : ""%>>Bogor</option>
+                                    <option <%= data[0].location == 'Cirebon' ? 'selected' : ""%>>Cirebon</option>
+                                    <option <%= data[0].location == 'Semarang' ? 'selected' : ""%>>Semarang</option>
+                                    <option <%= data[0].location == 'Purwokerto' ? 'selected' : ""%>>Purwokerto</option>
+                                    <option <%= data[0].location == 'Kebumen' ? 'selected' : ""%>>Kebumen</option>
+                                    <option <%= data[0].location == 'Yogjakarta' ? 'selected' : ""%>>Yogjakarta</option>
+                                    <option <%= data[0].location == 'Surabaya' ? 'selected' : ""%>>Surabaya</option>
+                                    <% }) %>
+                               </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" value="<%= data[0].password%>" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                               <label for="mobile"><h4>Gender</h4></label>
+                               <select name="gender" id="" class="custom-select custom-selecet">
+                                    <option value="<%= data[0].gender%>"><%= data[0].gender%></option>
+                               </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          
+                          <div class="col-xs-10">
+                            <label for="password2"><h4>Bio</h4></label>
+                              <textarea type="text" class="form-control" name="bio" id="password2" value="<%= data[0].bio%>" title="enter your password2."><%= data[0].bio%></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                               	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                      </div>
+              	</form>
+              
+             </div><!--/tab-pane-->
+             
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+    <script>
+        $(document).ready(function() {
+
+    
+var readURL = function(textarea) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('.avatar').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+$(".file-upload").on('change', function(){
+    readURL(this);
+});
+});
+    </script>                                             
+</body>
+</html>
+
+
+
