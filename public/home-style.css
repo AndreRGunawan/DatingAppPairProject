@@ -428,7 +428,7 @@ body {
     display: inline-block;
     font: normal normal normal 14px/1 'Nucleo Outline';
     font-size: inherit;
-    speak: none;
+    /* speak: none; */
     text-transform: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -697,7 +697,7 @@ img {
 
 .footer nav {
     display: inline-block;
-    float: left;
+    /* float: left; */
 }
 
 .footer ul {
@@ -1325,7 +1325,7 @@ img {
   display: inline-block;
   font: normal normal normal 14px/1 'Nucleo Outline';
   font-size: inherit;
-  speak: none;
+  /* speak: none; */
   text-transform: none;
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;

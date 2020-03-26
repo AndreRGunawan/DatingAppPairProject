@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Database</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <h1>All users</h1>
+    <a href="/logout">Log out</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Looking For</th>
+            <th>Location</th>
+            <th>Bio</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+        <% for(i = 0; i < allUser.length; i++){%>
+        <tr>
+            <td><%= allUser[i]["id"] %></td>
+            <td><%= allUser[i]["name"] %></td>
+            <td><%= allUser[i]["email"] %></td>
+            <td><%= allUser[i]["phone_number"] %></td>
+            <td><%= allUser[i]["gender"] %></td>
+            <td><%= allUser[i]["age"] %></td>
+            <td><%= allUser[i]["look_for"] %></td>
+            <td><%= allUser[i]["location"] %></td>
+            <td><%= allUser[i]["bio"] %></td>
+            <td><%= allUser[i]["password"] %></td>
+            <td><a href="/users/<%= allUser[i]["id"] %>/delete">Delete</a></td>
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>
