@@ -1,0 +1,77 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit Profile</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/v4-shims.min.js" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+<body>
+<div class="container bootstrap snippet">
+    <div class="row">
+          <div class="col-sm-10 ml-2"><h1><%= image[0].name%></h1></div>
+    </div>
+    <div class="row bg-info p-5">
+  		<div class="col-sm-3"><!--left col-->
+            <form role="form" enctype="multipart/form-data" action="/image/upload"  method="POST">
+                <img src="<%= image[0].file ? image[0].file : "" %>" id="upload" class="avatar img-circle img-thumbnail mb-4" alt="avatar">
+                <input name="image" accept="image/*" type="file" id="picture">
+                <button type="submit" class="btn btn-primary mt-4">Edit Image</button>
+            </form>
+
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span><%= image[0].like%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Dislike</strong></span><%= image[0].dislike%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Matches</strong></span><%= image[0].like%></li>
+          </ul>
+        </div><!--/col-3-->
+    	<div class="row bg-info p-5">
+            <div class="text-center">
+                <img src="<%= image[0].file%>" class="rounded" alt="...">
+              </div>
+        </div>
+             
+        </div><!--/tab-pane-->
+    </div><!--/tab-content-->
+
+    <script>
+        $(document).ready(function() {
+
+    
+var readURL = function(textarea) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('.avatar').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+$(".file-upload").on('change', function(){
+    readURL(this);
+});
+});
+    </script>                                             
+</body>
+</html>
+
+
+

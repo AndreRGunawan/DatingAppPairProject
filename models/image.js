@@ -2,10 +2,21 @@
 module.exports = (sequelize, DataTypes) => {
   class Image extends sequelize.Sequelize.Model {}
   Image.init({
-    file: DataTypes.STRING,
-    like: DataTypes.INTEGER,
-    love: DataTypes.BOOLEAN,
-    dislike: DataTypes.INTEGER,
+    file: {
+      type: DataTypes.STRING
+    },
+    like: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
+    love: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    dislike: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {
