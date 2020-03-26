@@ -12,7 +12,9 @@ class UserController {
     }
 
     static registration(req, res) {
-        res.render("signup");
+        let notifSuccess = req.app.locals.successMessage;
+        delete req.app.locals.successMessage;
+        res.render("signup", { notifSuccess });
     }
 
     static create(req, res) {
@@ -20,7 +22,8 @@ class UserController {
         let createdData = { email, password, name, phone_number, gender, age, look_for, location, bio };
         User.create(createdData)
             .then((data) => {
-                // res.send(data)
+                let msg = `Successfully create data user`
+                req.app.locals.successMessage = msg;                
                 res.redirect("/")
             })
             .catch(err => { res.send(err) })
