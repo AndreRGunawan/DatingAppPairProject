@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Image } = require("../models");
 
 class UserController {
     static findAll(req, res) {
@@ -77,8 +77,9 @@ class UserController {
             if(user){
                 if(user["password"] === password){
                     req.session.islogin = true
-                    console.log(req.session)
-                    res.redirect("/users") // ini harusnya redirect ke halaman dashboard user, sementara development ke home mula2 dulu
+                    // console.log(req.session)
+                    // res.send(user)
+                    res.render("dashboard", { user }) // ini harusnya redirect ke halaman dashboard user, sementara development ke home mula2 dulu
                 } else {
                     res.send("Password anda salah!") // ubah jadi req.session.message
                 }
@@ -93,7 +94,8 @@ class UserController {
     static editProfile(req, res) {
         let id = req.params.id;
         User.findAll(
-            { where : { id} 
+            { where : { id },
+            include : [ Image ]
         })
         .then((data) => {
             // res.send(data)
@@ -118,6 +120,18 @@ class UserController {
                 res.send(err);
             })
     }
+
+    static delete(req, res) {
+        let id = req.params.id;
+        User.destroy({ where : { id} })
+            .then(() => {
+                res.redirect(`/`)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
     static logout(req, res) {
         req.session.destroy()
         console.log("You have been signed out")

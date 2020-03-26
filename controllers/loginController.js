@@ -10,22 +10,22 @@ class Controller {
         let errormessage = req.session.error
         delete req.session.error
         let session = req.session
-        res.render('home.ejs', { session , errormessage});
+        res.render('home.ejs', { session , errormessage });
     }
 
 
     static postLogin(req, res) {
-        const { email, password} = req.body
+        const { email, password } = req.body
         User.findOne({
             where:{
                 email
             }
         })
-        .then(function(user){
-            if(user){
-                if(user["password"] === password){
+        .then(function(data){
+            if(data){
+                if(data["password"] === password){
                     req.session.islogin = true
-                    res.redirect("/users") // ini harusnya redirect ke halaman dashboard user, sementara development ke home mula2 dulu
+                    res.render("dashboard", { data }) // ini harusnya redirect ke halaman dashboard user, sementara development ke home mula2 dulu
                 } else {
                     req.session.error = "Password anda salah!"
                     res.redirect("/")

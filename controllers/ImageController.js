@@ -20,8 +20,8 @@ const upload = multer({
 class ImageController {
     static findAll(req, res) {
         Image.findAll()
-            .then((data) => {
-                res.send(data)
+            .then((dataImages) => {
+                res.render("dashboard", { dataImages })
             })
             .catch(err => {
                 res.send(err);
@@ -60,6 +60,14 @@ class ImageController {
                 })
             }
          });
+    }
+
+    static like(req, res) {
+
+    }
+
+    static dislike(req, res) {
+        
     }
 }
 
