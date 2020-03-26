@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -13,7 +12,7 @@
 <body>
     <div class="container col-md-8 bg-success">
         <h1 style="text-align: center;">Registration Form</h1>
-        <form style="margin-left: 25%; margin-right: 25%" action="/users/register" method="POST" >
+        <form style="margin-left: 25%; margin-right: 25%" action="register" method="POST" >
             <h3>Profile Email and Password</h3>
     ​
                 <label for="email">Email:</label>
@@ -98,65 +97,5 @@
             </div>
         </form><br>
     </div>
-=======
-    <title>Document</title>
-</head>
-<body>
-    <form style="margin-left: 25%; margin-right: 25%" action="/signup" method="POST">
-
-        <h3>Profile Email and Password</h3>
-
-        <div class="form-group">
-          <label for="email">Email:</label><br>
-          <input class="form-control" type="text" id="email" name="email" placeholder="ZidniGanteng@gmail.com"> 
-        </div><br>
-
-        <div class="form-group">
-          <label for="password">Password:</label><br>
-          <input class="form-control" type="password" id="password" name="password">
-        </div>
-
-        <h3>Your personal profile</h3>
-
-        <div class="form-group">
-            <label for="name">Full Name:</label><br>
-            <input class="form-control" type="text" id="name" name="name" placeholder="e.g. Zidni Zidane"> 
-          </div><br>
-
-        <div class="form-group">
-            <label for="phone_number">Phone Number:</label><br>
-            <input  class="form-control" type="tel" id="phone_number" name="phone_number" placeholder="08XX-XXX-XXX"><br>
-        </div><br>
-
-        <div class="form-group"></div>
-            <label for="gender">Gender:</label><br>
-            <input class="form-control" type="radio" name="gender" value="Male"> Male<br>
-            <input class="form-control" type="radio" name="gender" value="Female"> Female<br>
-        </div><br>
-
-        <div class="form-group"></div>
-            <label for="age">Age:</label><br>
-            <input class="form-control" type="number" id="age" name="age" min="18" max="75" placeholder="20">
-        </div><br><br>
-
-        <div class="form-group">
-            <label for="look_for">Looking for:</label><br>
-            <input class="form-control" type="text" id="look_for" name="look_for">
-        </div><br>
-
-        <div class="form-group">
-            <label for="location">Location:</label><br>
-            <input class="form-control" type="text" id="location" name="location">
-        </div><br>
-
-        <div class="form-group"></div>
-            <label for="bio">Biodata:</label><br>
-            <textarea  class="form-control" id="bio" name="bio" cols="50" rows ="4">Your profile bio here...</textarea>
-        </div><br><br>
-
-        <input type="submit" value="Register" class="btn btn-primary">
-        <a href="/"><button type="button" class="btn btn-danger">Cancel</button></a>
-    </form>
->>>>>>> 40810455918618d97e544069a6d4f615fa380c1b
 </body>
 </html>

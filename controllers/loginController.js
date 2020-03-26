@@ -9,11 +9,10 @@ class Controller {
     static getLogin(req, res) {
         let errormessage = req.session.error
         delete req.session.error
-        let session = req.session
-        res.render('login.ejs', { session , errormessage});
+        let session = req.session.message
+        delete req.session.message
+        res.render('login.ejs', { sessionmessage:session , errormessage});
     }
-
-
 
     static postLogin(req, res) {
         const {email, password} = req.body
@@ -23,20 +22,25 @@ class Controller {
             }
         })
         .then(function(user){
+            console.log("=============")
+            console.log(user)
             if(user){
-                if(user["password"] === password){
-                    req.session.islogin = true
-
-                    res.redirect("/users") // ini harusnya redirect ke halaman dashboard user, sementara development ke home mula2 dulu
-                } else {
-                    req.session.error = "Password anda salah!"
-                    res.redirect("/login")
-                }
-            } 
+                bcrypt.compare(password, user["password"], (err,isValid) => {
+                    if(isValid){
+                        req.session.islogin = true
+                        res.redirect("/users") // ini harusnya redirect ke halaman dashboard user, sementara development ke home mula2 dulu
+                    } else {
+                        req.session.error = "Password anda salah!"
+                        res.redirect("/login")
+                    }
+                })
+            } else {
+                req.session.error = "Anda belum terdaftar! Silahkan register terlebih dahulu!"
+                res.redirect("/login")
+            }
         })
         .catch(function(error){
-            req.session.error = "Anda belum terdaftar! Silahkan register terlebih dahulu!"
-            res.redirect("/login")
+            res.send(error)
         })
         
         // let { username,password } = req.body

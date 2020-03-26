@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const bcrypt = require('bcryptjs')
 
 class UserController {
     static findAll(req, res) {
@@ -36,27 +37,32 @@ class UserController {
         let password = req.body.password
         let confirm_password = req.body.confirm_password
         if (password == confirm_password){
-            let newUser = { 
-                email: req.body.email,
-                name: req.body.name,
-                phone_number: req.body.phone_number,
-                gender: req.body.gender,
-                age: req.body.age,
-                look_for: req.body.look_for,
-                location: req.body.location,
-                bio: req.body.bio,
-                password: req.body.password,
-                createdAt: new Date(),
-                updatedAt: new Date()
-            }
-            User.create(newUser)
-                .then(function(result1){
-                    req.session.message = "Selamat, kamu sudah terdaftar!"
-                    res.redirect("/login")
-                })
-                .catch(function(error){
-                    res.send(error) //error apabila create gagal karena validasi, misalnya karena umur di bawah 18
-                })
+            bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(password, salt, function(err, hash) {
+                    // Store hash in your password DB.
+                    let newUser = { 
+                        email: req.body.email,
+                        name: req.body.name,
+                        phone_number: req.body.phone_number,
+                        gender: req.body.gender,
+                        age: req.body.age,
+                        look_for: req.body.look_for,
+                        location: req.body.location,
+                        bio: req.body.bio,
+                        password: hash,
+                        createdAt: new Date(),
+                        updatedAt: new Date()
+                    }
+                    User.create(newUser)
+                        .then(function(result1){
+                            req.session.message = "Selamat, kamu sudah terdaftar!"
+                            res.redirect("/login")
+                        })
+                        .catch(function(error){
+                            res.send(error) //error apabila create gagal karena validasi, misalnya karena umur di bawah 18
+                        })
+                });
+            })   
         } else {
             req.session.error = "Password yang kamu masukkan tidak sama!"
             res.redirect("/register")

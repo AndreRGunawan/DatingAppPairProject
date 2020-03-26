@@ -12,23 +12,9 @@ router.get('/register', (req, res) => userController.getRegisterForm(req,res))
 router.post('/register', (req,res) => userController.postRegisterForm(req,res))
 
 
-
-
-
-
-
 //login process -- loginController here
 router.get('/login', loginController.getLogin)
 router.post('/login', loginController.postLogin)
-
-
-
-
-
-
-
-
-
 
 
 //logout process here
