@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const user = require("./user");
-const Home = require("../controllers/Home");
-// const image = require("./image");
+const Controller = require("../controllers/Controller");
+const image = require("./image");
 
 
-router.get("/", Home.findAll);
+router.get("/", Controller.findAll);
 router.use("/users", user);
-// router.use("/image", image);
+router.use("/image", image);
+router.get('/login', Controller.getLogin)
+router.post('/login', Controller.postLogin)
+router.get('/logout', Controller.logout)
 
 module.exports = router;

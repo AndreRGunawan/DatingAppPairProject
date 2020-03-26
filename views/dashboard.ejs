@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -533,7 +533,7 @@ body {
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="#">pro sidebar</a>
+        <a href="/users">Jomblo</a>
         <div id="close-sidebar">
           <i class="fas fa-times"></i>
         </div>
@@ -544,10 +544,10 @@ body {
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Jhon
-            <strong>Smith</strong>
+          <span class="user-name">
+            <%= data[0].name %>
           </span>
-          <span class="user-role">Administrator</span>
+          <span class="user-role"><%= data[0].location%></span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
             <span>Online</span>
@@ -642,68 +642,13 @@ body {
               </ul>
             </div>
           </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-chart-line"></i>
-              <span>Charts</span>
-            </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">Pie chart</a>
-                </li>
-                <li>
-                  <a href="#">Line chart</a>
-                </li>
-                <li>
-                  <a href="#">Bar chart</a>
-                </li>
-                <li>
-                  <a href="#">Histogram</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-globe"></i>
-              <span>Maps</span>
-            </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">Google maps</a>
-                </li>
-                <li>
-                  <a href="#">Open street map</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="header-menu">
-            <span>Extra</span>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-book"></i>
-              <span>Documentation</span>
-              <span class="badge badge-pill badge-primary">Beta</span>
+          <li class="sidebar">
+            <a href="/users/edit/<%= data[0].id%>">
+              <i class="fa fa-cog"></i>
+              <span>Account Setting</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-calendar"></i>
-              <span>Calendar</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-folder"></i>
-              <span>Examples</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+          
       <!-- sidebar-menu  -->
     </div>
     <!-- sidebar-content  -->
@@ -728,56 +673,7 @@ body {
   <!-- sidebar-wrapper  -->
   <main class="page-content">
     <div class="container-fluid">
-        <div class="container mt-40">
-            <h3 class="text-center">Hover Effect Style : Demo - 2</h3>
-            <div class="row mt-30">
-                <div class="col-md-4 col-sm-6">
-                    <div class="box2">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo193/images/img-1.jpg">
-                        <div class="box-content">
-                            <div class="inner-content">
-                                <h3 class="title">Williamson</h3>
-                                <span class="post">Web Developer</span>
-                                <ul class="icon">
-                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="box2">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo193/images/img-2.jpg">
-                        <div class="box-content">
-                            <div class="inner-content">
-                                <h3 class="title">Kristiana</h3>
-                                <span class="post">Web Designer</span>
-                                <ul class="icon">
-                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="box2">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo193/images/img-3.jpg">
-                        <div class="box-content">
-                            <div class="inner-content">
-                                <h3 class="title">Kristiana</h3>
-                                <span class="post">Web Designer</span>
-                                <ul class="icon">
-                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
   </main>
   <!-- page-content" -->
