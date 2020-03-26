@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const bcrypt = require('bcryptjs')
 
 class Controller {
     static findAll(req, res) {

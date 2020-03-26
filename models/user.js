@@ -59,9 +59,9 @@ module.exports = (sequelize, DataTypes) => {
       type : DataTypes.STRING,
       validate: {
         isLookForValidator(look) {
-          if(this.gender.toLowerCase() == 'male' && look == 'male') {
+          if(this.gender.toLowerCase() == 'male' && look.toLowerCase() == 'male') {
             throw new Error(`Male must be looking for girl, LGBT is not allowed !`)
-          } else if(this.gender.toLowerCase() == 'female' && look == 'female') {
+          } else if(this.gender.toLowerCase() == 'female' && look.toLowerCase() == 'female') {
             throw new Error(`Female must be looking for girl, LGBT is not allowed !`)
           }
         }
